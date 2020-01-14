@@ -1,4 +1,11 @@
 Rails.application.routes.draw do
+  get 'missions/index'
+  get 'missions/show'
+  get 'missions/new'
+  get 'missions/create'
+  get 'missions/edit'
+  get 'missions/update'
+  get 'missions/destroy'
   devise_for :users
   root 'homepage#show'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
