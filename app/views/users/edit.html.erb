@@ -1,2 +1,21 @@
-<h1>Users#edit</h1>
-<p>Find me in app/views/users/edit.html.erb</p>
+<div class="container">
+
+  <div class="row">
+    <div class="col-12">
+      <h1>User profile settings</h1>
+      <h2>Add and edit information about yourself: </h2>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-12"></div>
+      <%= simple_form_for @user do |f| %>
+        <%= f.input :name, required: false %>
+        <%= f.input :phone, required: false %>
+        <%= f.input :introduction, required: false %>
+        <%= f.button :submit %>
+      <% end %>
+  </div>
+</div>
+
+</div>
