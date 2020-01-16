@@ -8,9 +8,11 @@ class AnimalsController < ApplicationController
   end
 
   def create
-    @animal = Animal.create(animal_params)
+    @animal = Animal.new(animal_params)
+    @animal.user = current_user
+    @animal.save
 
-    redirect_to root
+    redirect_to user_path(current_user)
   end
 
   def edit
@@ -21,7 +23,7 @@ class AnimalsController < ApplicationController
     @animal = Animal.find(params[:id])
     @animal.update(animal_params)
 
-    redirect_to root
+    redirect_to user_path(current_user)
   end
 
   def destroy
@@ -34,6 +36,6 @@ class AnimalsController < ApplicationController
   private
 
   def animal_params
-    params.require(:animal).permit(:name, :species, :dangerosity, :needs, :user)
+    params.require(:animal).permit(:name, :species, :dangerosity, :needs)
   end
 end
