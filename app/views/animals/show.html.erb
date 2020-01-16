@@ -1,2 +1,6 @@
 <h1>Animals#show</h1>
-<p>Find me in app/views/animals/show.html.erb</p>
+
+<%= "Name: #{@animal.name}" %> <br>
+<%= "Species: #{@animal.species} "  %> <br>
+<%= "Dangerosity #{@animal.dangerosity.to_s}" %> <br>
+<%= "Specific needs: #{@animal.needs}" %> <br>
