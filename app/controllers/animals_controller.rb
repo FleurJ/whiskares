@@ -3,31 +3,33 @@ class AnimalsController < ApplicationController
     @animal = Animal.find(params[:id])
   end
 
-  # def new
-  #   @animal = Animal.new
-  # end
+  def new
+    @animal = Animal.new
+  end
 
-  # def create
-  #   @animal = Animal.create(animal_params)
-  # end
+  def create
+    @animal = Animal.create(animal_params)
 
-  # def edit
-  #   @animal = Animal.find(params[:animal_id])
-  # end
+    redirect_to root
+  end
 
-  # def update
-  #   @animal = Animal.find(params[:animal_id])
-  #   @animal.update(animal_params)
+  def edit
+    @animal = Animal.find(params[:id])
+  end
 
-  #   redirect_to user_animal_path(@animal.user, @animal)
-  # end
+  def update
+    @animal = Animal.find(params[:id])
+    @animal.update(animal_params)
 
-  # def destroy
-  #   @animal = Animal.find(params[:animal_id])
-  #   @animal.destroy
+    redirect_to root
+  end
 
-  #   redirect_to user_animals_path(@animal.user)
-  # end
+  def destroy
+    @animal = Animal.find(params[:animal_id])
+    @animal.destroy
+
+    redirect_to root
+  end
 
   private
 
