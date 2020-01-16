@@ -5,8 +5,5 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-users = User.create([{ email: "fleur.jasoigne@gmail.com", encrypted_password: "123456" }, { email: "fleur.jasoigne+1@gmail.com", encrypted_password: "123456" }, { email: "fleur.jasoigne+2@gmail.com", encrypted_password: "123456" }])
-
-Animal.create(name: "Merlin", species: "Wombat", dangerosity: "0", needs: "love")
-Animal.create(name: "Crumble", species: "persian cat", dangerosity: "0", needs: "frolics and hugs")
-Animal.create(name: "Charlie", species: "Unicorn", dangerosity: "2", needs: "pink water")
+users = User.create!([{ email: "fleur.jasoigne@gmail.com", password: "123456" }, { email: "fleur.jasoigne+1@gmail.com", password: "123456" }, { email: "fleur.jasoigne+2@gmail.com", password: "123456" }])
+Animal.create!(name: "bob", species: "Rabbit", dangerosity: 2, needs: "love", user: users.sample)
