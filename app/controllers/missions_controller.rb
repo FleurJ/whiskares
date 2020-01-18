@@ -29,7 +29,6 @@ class MissionsController < ApplicationController
     @mission.update(mission_params)
     redirect_to animal_mission_path(@mission)
   end
-  end
 
   def destroy
   end
