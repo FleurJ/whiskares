@@ -14,7 +14,7 @@ class MissionsController < ApplicationController
   end
 
   def create
-    mission = Mission.new!(extended_mission_params)
+    mission = Mission.new(extended_mission_params)
     if mission.save!
       redirect_to animal_mission_path(animal.id, mission.id)
     else
