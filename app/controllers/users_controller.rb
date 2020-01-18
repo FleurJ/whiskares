@@ -2,6 +2,13 @@ class UsersController < ApplicationController
   before_action :check_user, only: [:edit, :update, :show]
 
   def show
+    animals = Animal.all
+    @animals = []
+    animals.each do |a|
+      if a.user == current_user
+        @animals << a
+      end
+    end
   end
 
   def edit

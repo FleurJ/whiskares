@@ -3,11 +3,41 @@
   <div class="row">
     <div class="col-12">
       <h2>User Profile</h2>
-      <h3><%= @user.email %></h3>
-      <h3><%= @user.name %></h3>
-      <h3><%= @user.phone %></h3>
-      <h3><%= @user.introduction %></h3>
+      <h3>Email: <%= @user.email %></h3>
+      <h3>Name: <%= @user.name %></h3>
+      <h3>Phone Number: <%= @user.phone %></h3>
+      <h3>Introduction: </h3>
+      <p><%= @user.introduction %></p>
       <%= link_to "Edit profile", edit_user_path(@user) %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-12">
+      <div class="card-deck">
+        <% @animals.each do |animal| %>
+          <div class="card">
+            <div class="card-body">
+              <h4 class="card-title"><%= animal.name %></h4>
+              <h5>Species: <%= animal.species %></h5>
+              <h5>Dangerosity: <%= animal.dangerosity %></h5>
+              <p class="card-text">Needs: <%= animal.needs %></p>
+              <%= link_to "Edit animal", edit_animal_path(animal) %>
+              <%= link_to "Delete animal", animal_path(animal),
+                method: :delete,
+                data: { confirm: "Are you sure?" },
+                class: 'ml-3 text-danger' %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-12">
+      <br>
+      <%= link_to "Add animal", new_animal_path %>
     </div>
   </div>
 
