@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :users, only: %i[show new edit create destroy update]
 
   resources :animals, only: %i[show new create edit update destroy] do
-    resources :missions, only: %i[index show new create edit update destroy]
+    resources :missions, only: %i[show new create edit update destroy]
   end
+  get '/missions', to: 'missions#index'
 end
