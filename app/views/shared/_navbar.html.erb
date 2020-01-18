@@ -15,6 +15,9 @@
           <%= link_to "Home", missions_path, class: "nav-link" %>
         </li>
         <li class="nav-item">
+          <%= link_to "My account", user_path(current_user), class: "nav-link" %>
+        </li>
+        <li class="nav-item">
           <%= link_to "LogOut", destroy_user_session_path, method: :delete, class: "nav-link" %>
         </li>
         <li class="nav-item dropdown">
