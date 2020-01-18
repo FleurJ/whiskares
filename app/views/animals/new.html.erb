@@ -1,2 +1,14 @@
 <h1>Animals#new</h1>
 <p>Find me in app/views/animals/new.html.erb</p>
+
+  <%= simple_form_for @animal, url: animals_path, method: :post do |f| %>
+    <h2>Create Animal</h2>
+    <%= f.input :name, label: "Name:" %>
+    <%= f.input :species, label: "Species:" %>
+    <%= f.input :dangerosity, label: "Dangerosity:" %>
+    <%= f.input :needs, label: "Needs:" %>
+
+    <button type="button" class="btn btn-outline-primary">
+      <%= f.button :submit, value: 'Create', "data-disable-with" => "Creating.." %>
+    </button>
+  <% end %>
