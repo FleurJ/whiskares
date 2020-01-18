@@ -27,10 +27,10 @@ class AnimalsController < ApplicationController
   end
 
   def destroy
-    @animal = Animal.find(params[:animal_id])
+    @animal = Animal.find(params[:id])
     @animal.destroy
 
-    redirect_to root
+    redirect_to user_path(current_user)
   end
 
   private
