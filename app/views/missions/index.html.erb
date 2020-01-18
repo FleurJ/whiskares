@@ -6,10 +6,10 @@
 
 <% @missions.each do |mission| %>
 <div class="card" style="width: 18rem;">
-  <img class="card-img-top" src="https://source.unsplash.com/random/jcosens" alt="Card image cap">
+  <%= image_tag "pets_big.png", width:"150px" %>
   <div class="card-body">
     <h5 class="card-title">Mission from <%= mission.start_date %> to <%= mission.end_date %></h5>
-    <p class="card-text"><p>Animal : <%= mission.animal_id %> </p>
+    <p class="card-text"><p>Animal : <%= mission.animal.name %> </p>
                 <p>City : <%= mission.city %></p></p>
     <a href="#" class="btn btn-primary">Apply</a>
   </div>
