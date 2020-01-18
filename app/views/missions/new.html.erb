@@ -1,10 +1,18 @@
-<h1>Create new mission</h1>
-<%= simple_form_for @mission, url: animal_missions_path(@animal), method: :post do |f| %>
+<div class="container">
 
-  <%= f.input :start_date %>
-  <%= f.input :end_date %>
-  <%= f.input :fee %>
-  <%= f.input :city %>
+  <div class="row">
+    <div class="col-12">
+      <h1>Create new mission</h1>
+      <%= simple_form_for @mission, url: animal_missions_path(@animal), method: :post do |f| %>
 
-<%= f.submit "save changes", class: "btn btn-primary" %>
-<% end %>
+        <%= f.input :start_date %>
+        <%= f.input :end_date %>
+        <%= f.input :fee %>
+        <%= f.input :city %>
+
+      <%= f.submit "save changes", class: "btn btn-primary" %>
+      <% end %>
+    </div>
+  </div>
+
+</div>
