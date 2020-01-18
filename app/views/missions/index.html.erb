@@ -1,22 +1,23 @@
 <div class="container">
-
+<h1>All Missions</h1>
   <div class="row">
     <div class="col-12">
-      <h1>All Missions</h1>
+      <div class="card-deck">
 
-      <% @missions.each do |mission| %>
-      <div class="card" style="width: 18rem;">
-        <img src="https://source.unsplash.com/random/jcosens" class="card-img-top" alt="animal random">
-        <div class="card-body">
-          <p class="card-text">
-        <p>Mission from <%= mission.start_date %> to <%= mission.end_date %></p>
-        <p>Animal : <%= mission.animal_id %> </p>
-        <p>City : <%= mission.city %></p>
-      </p>
-        </div>
-      </div>
-      <% end %>
+<% @missions.each do |mission| %>
+<div class="card" style="width: 18rem;">
+  <img class="card-img-top" src="https://source.unsplash.com/random/jcosens" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title">Mission from <%= mission.start_date %> to <%= mission.end_date %></h5>
+    <p class="card-text"><p>Animal : <%= mission.animal_id %> </p>
+                <p>City : <%= mission.city %></p></p>
+    <a href="#" class="btn btn-primary">Apply</a>
+  </div>
+</div>
+<% end %>
     </div>
+      </div>
+
   </div>
 
 </div>
