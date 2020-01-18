@@ -1,2 +1,10 @@
-<h1>Create a new mission</h1>
-<p>Find me in app/views/missions/new.html.erb</p>
+<h1>Create new mission</h1>
+<%= simple_form_for @mission, url: animal_missions_path(@animal), method: :post do |f| %>
+
+  <%= f.input :start_date %>
+  <%= f.input :end_date %>
+  <%= f.input :fee %>
+  <%= f.input :city %>
+
+<%= f.submit "save changes", class: "btn btn-primary" %>
+<% end %>

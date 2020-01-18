@@ -1,2 +1,9 @@
-<h1>Missions#edit</h1>
-<p>Find me in app/views/missions/edit.html.erb</p>
+<h1>Edit mission</h1>
+<%= simple_form_for @mission, url: animal_mission_path, method: :patch do |f| %>
+  <%= f.input :start_date %>
+  <%= f.input :end_date %>
+  <%= f.input :fee %>
+  <%= f.input :city %>
+</div>
+<%= f.submit "save changes", class: "btn btn-primary" %>
+<% end %>
