@@ -1,2 +1,24 @@
-<h1>Create a new mission</h1>
-<p>Find me in app/views/missions/new.html.erb</p>
+<h1>Create new mission</h1>
+<%= simple_form_for [@animal, @mission] do |f| %>
+<div class="field">
+  <%= f.label :start_date %> <br>
+  <%= f.input :start_date %>
+</div>
+<div class="field">
+  <%= f.label :end_date %> <br>
+  <%= f.input :end_date %>
+</div>
+<div class="field">
+  <%= f.label :fee %> <br>
+  <%= f.input :fee %>
+</div>
+<div class="field">
+  <%= f.label :city %> <br>
+  <%= f.input :city %>
+</div>
+<div class="field">
+  <%= f.label :animal %> <br>
+  <%= f.association :animal, input_html: { class: "beautiful-dropdown" }, include_hidden: false %>
+</div>
+<%= f.submit "save changes", class: "btn btn-primary" %>
+<% end %>
