@@ -1,0 +1,32 @@
+$clearblue : #00a5db;
+$darkblue : #005670;
+$orange : #f9b233;
+$red : #e5554f;
+
+.btn-primary {
+  background-color: $clearblue;
+
+  &:hover{
+    box-shadow: 1px 1px 3px rgba(255, 255, 255, 0.3);
+    background-color: $clearblue;
+  }
+
+}
+
+.btn-secondary {
+  background-color: $red;
+
+  &:hover{
+    box-shadow: 1px 1px 3px rgba(255, 255, 255, 0.3);
+    background-color: $red;
+  }
+
+}
+
+a {
+  color: white;
+  &:hover{
+    color: white;
+  }
+}
+
