@@ -1,4 +1,4 @@
-$clearblue : #00a5db;
+$clearblue : #00a5bd;
 $darkblue : #005670;
 $orange : #f9b233;
 $red : #e5554f;
@@ -23,4 +23,31 @@ $red : #e5554f;
 
 }
 
+.btn-new-user {
+  background-color: $orange;
+  font-family: "Catamaran";
+  font-weight: 600;
+  color: white;
+  padding: 8px 48px;
+  font-size: 1.5em;
+  margin-right: 30px;
+  &:hover {
+  color: white;
+  box-shadow: inset 3px 3px 5px rgba(0, 0, 0, 0.4);
+  }
+}
+
+.btn-login {
+  background-color: $darkblue;
+  font-family: "Catamaran";
+  font-weight: 600;
+  color: white;
+  padding: 8px 48px;
+  font-size: 1.5em;
+  &:hover {
+  color: white;
+  box-shadow: inset 3px 3px 5px rgba(0, 0, 0, 0.4);
+  }
+
+}
 
