@@ -1,0 +1,31 @@
+.container-homepage {
+  background: image-url("cover-background.jpg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  min-height: 82vh;
+  transition: ease-in;
+}
+
+.container-homepage h1 {
+  font-family: "Catamaran";
+  font-weight: 600;
+  color: #c4c4c4;
+  font-size: 4em;
+  text-align: center;
+}
+
+.container-homepage .row .btn-homepage {
+  justify-content: center;
+}
+
+.container-homepage p {
+  font-size: 1.2em;
+  margin-top: 35px;
+}
+
+.container-homepage h2 {
+  font-family: "Catamaran";
+  font-weight: 600;
+  font-size: 2em;
+}
