@@ -5,4 +5,5 @@ class Animal < ApplicationRecord
   validates :species, presence: true
   validates :needs, presence: true
   validates :dangerosity, inclusion: { in: 0..5 }
+  has_one_attached :photo
 end
