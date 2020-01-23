@@ -58,6 +58,11 @@
                     <p>Animal : <%= mission.animal.name %> </p>
                     <p>City : <%= mission.city %></p>
                     <p>candidates: <%= mission.candidates['candidates_email'] %></p>
+                      <%= simple_form_for mission, url: animal_mission_path(mission.animal, mission), method: :patch do |f| %>
+                        <%= f.input :candidates %>
+                        <%= f.input :archived %>
+                        <%= f.submit "save changes", class: "btn btn-primary" %>
+                      <% end %>
                   </p>
                 </div>
               </div>
