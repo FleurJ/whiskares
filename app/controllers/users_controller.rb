@@ -5,9 +5,12 @@ class UsersController < ApplicationController
     animals = Animal.all
     @animals = []
     animals.each do |a|
-      if a.user == current_user
-        @animals << a
-      end
+      @animals << a if a.user == current_user
+    end
+    missions = Mission.all
+    @missions = []
+    missions.each do |m|
+      @missions << m if m.user == current_user
     end
   end
 
