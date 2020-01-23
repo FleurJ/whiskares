@@ -1,7 +1,7 @@
 class CreateMissions < ActiveRecord::Migration[5.2]
   def change
     create_table :missions do |t|
-      t.text :candidates, array: true, default: []
+      t.json :candidates
       t.string :city
       t.references :user, foreign_key: true
       t.integer :fee
