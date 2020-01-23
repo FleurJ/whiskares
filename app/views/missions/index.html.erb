@@ -9,7 +9,7 @@
             <div class="card-body">
               <p class="card-text">
                 <p>Mission from <%= mission.start_date %> to <%= mission.end_date %></p>
-                <p>Animal : <%= mission.animal_id %> </p>
+                <p>Animal : <%= mission.animal.name %> </p>
                 <p>City : <%= mission.city %></p>
                 <%= link_to 'Apply', animal_mission_apply_path(mission, mission.animal), method: :post %>
                 <p>candidates: <%= mission.candidates['candidates_email'] %></p>
