@@ -11,9 +11,12 @@
           <h5 class="card-title">Name: <%= @user.name %></h5>
           <h5 class="card-title">Phone Number: <%= @user.phone %></h5>
           <h5 class="card-title">Introduction:  <%= @user.introduction %></h5>
-          <%= link_to "Edit profile", edit_user_path(@user), class: 'btn btn-primary' %>
+          <% if @user == current_user %>
+            <%= link_to "Edit profile", edit_user_path(@user), class: 'btn btn-primary' %>
+          <% end %>
         </div>
 
+<% if @user == current_user %>
   <div class="row">
     <div class="col-12">
       <div class="card-deck">
@@ -36,12 +39,15 @@
       </div>
     </div>
   </div>
+<% end %>
 
+<% if @user == current_user %>
   <div class="row">
     <div class="col-12">
       <br>
       <%= link_to "Add animal", new_animal_path, class: 'btn btn-primary rounded' %>
     </div>
+<% end %>
 
   </div>
 

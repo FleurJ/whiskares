@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_action :check_user, only: [:edit, :update, :show]
+  before_action :authenticate_user!, only: [:edit, :update]
 
   def show
     animals = Animal.all
@@ -15,8 +16,12 @@ class UsersController < ApplicationController
   end
 
   def update
-    @user.update(user_params)
-    redirect_to user_path(@user)
+    if @user == current_user
+      @user.update(user_params)
+      redirect_to user_path(@user)
+    else
+      redirect_to user_path(@user)
+    end
   end
 
   private

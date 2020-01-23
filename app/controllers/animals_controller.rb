@@ -21,16 +21,22 @@ class AnimalsController < ApplicationController
 
   def update
     @animal = Animal.find(params[:id])
-    @animal.update(animal_params)
-
-    redirect_to user_path(current_user)
+    if @animal.user == current_user
+      @animal.update(animal_params)
+      redirect_to user_path(current_user)
+    else
+      redirect_to user_path(current_user)
+    end
   end
 
   def destroy
     @animal = Animal.find(params[:id])
-    @animal.destroy
-
-    redirect_to user_path(current_user)
+    if @animal.user == current_user
+      @animal.destroy
+      redirect_to user_path(current_user)
+    else
+      redirect_to user_path(current_user)
+    end
   end
 
   private
