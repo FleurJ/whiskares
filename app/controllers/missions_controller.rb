@@ -4,7 +4,7 @@ class MissionsController < ApplicationController
   attr_reader :candidates_email
 
   def index
-    @missions = Mission.all
+    @missions = Mission.all.order(:created_at)
   end
 
   def show

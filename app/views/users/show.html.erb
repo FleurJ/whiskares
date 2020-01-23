@@ -13,36 +13,66 @@
           <h5 class="card-title">Introduction:  <%= @user.introduction %></h5>
           <%= link_to "Edit profile", edit_user_path(@user), class: 'btn btn-primary' %>
         </div>
-
-  <div class="row">
-    <div class="col-12">
-      <div class="card-deck">
-        <% @animals.each do |animal| %>
-          <div class="card">
-            <div class="card-body">
-              <h4 class="card-title"><%= animal.name %></h4>
-              <h5>Species: <%= animal.species %></h5>
-              <h5>Dangerosity: <%= animal.dangerosity %></h5>
-              <p class="card-text">Needs: <%= animal.needs %></p>
-              <%= link_to "Edit animal", edit_animal_path(animal), class: 'btn btn-primary rounded' %>
-              <%= link_to "Delete animal", animal_path(animal),
-                method: :delete,
-                data: { confirm: "Are you sure?" },
-                class: 'ml-3 btn btn-secondary rounded' %>
-            </div>
-            <%= link_to "Add mission", new_animal_mission_path(animal), class: 'btn btn-primary rounded' %>
-          </div>
-        <% end %>
       </div>
     </div>
   </div>
-
   <div class="row">
     <div class="col-12">
-      <br>
-      <%= link_to "Add animal", new_animal_path, class: 'btn btn-primary rounded' %>
+      <div class="card text-center">
+        <div class="card-header">
+          <h2>Your animal(s)</h2>
+        </div>
+        <div class="card-deck">
+          <% @animals.each do |animal| %>
+            <div class="card">
+              <div class="card-body">
+                <h4 class="card-title"><%= animal.name %></h4>
+                <h5>Species: <%= animal.species %></h5>
+                <h5>Dangerosity: <%= animal.dangerosity %></h5>
+                <p class="card-text">Needs: <%= animal.needs %></p>
+                <%= link_to "Edit animal", edit_animal_path(animal), class: 'btn btn-primary rounded' %>
+                <%= link_to "Delete animal", animal_path(animal),
+                method: :delete,
+                data: { confirm: "Are you sure?" },
+                class: 'ml-3 btn btn-secondary rounded' %>
+                <%= link_to "Add mission", new_animal_mission_path(animal), class: 'btn btn-primary rounded' %>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+    <div class="row">
+      <div class="col-12">
+        <div class="card text-center">
+          <div class="card-header">
+            <h2>Your pending missions</h2>
+          </div>
+          <div class="card-deck">
+            <% @missions.each do |mission| %>
+              <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                  <p class="card-text">
+                    <p>Mission from <%= mission.start_date %> to <%= mission.end_date %></p>
+                    <p>Animal : <%= mission.animal.name %> </p>
+                    <p>City : <%= mission.city %></p>
+                    <p>candidates: <%= mission.candidates['candidates_email'] %></p>
+                  </p>
+                </div>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
     </div>
 
-  </div>
-
+    <div class="row">
+      <div class="col-12">
+        <div class="text-center">
+          <br>
+        <%= link_to "Add animal", new_animal_path, class: 'btn btn-primary rounded' %>
+        </div>
+      </div>
+    </div>
 </div>
