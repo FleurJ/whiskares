@@ -8,6 +8,7 @@
         <%= f.input :species, label: "Species:" %>
         <%= f.input :dangerosity, label: "Dangerosity:" %>
         <%= f.input :needs, label: "Needs:" %>
+        <%= f.input :photo, as: :file %>
         <button type="button" class="btn btn-outline-primary">
           <%= f.button :submit, value: 'Create', "data-disable-with" => "Creating.." %>
         </button>
