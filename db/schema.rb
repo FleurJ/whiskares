@@ -27,7 +27,7 @@ ActiveRecord::Schema.define(version: 2020_01_16_175740) do
   end
 
   create_table "missions", force: :cascade do |t|
-    t.text "candidates", default: [], array: true
+    t.json "candidates"
     t.string "city"
     t.bigint "user_id"
     t.integer "fee"

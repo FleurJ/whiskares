@@ -1,6 +1,8 @@
 class MissionsController < ApplicationController
   before_action :check_mission, only: [:update, :edit, :show]
 
+  attr_reader :candidates_email
+
   def index
     @missions = Mission.all
   end
@@ -25,12 +27,24 @@ class MissionsController < ApplicationController
   def edit
   end
 
+  def apply
+    @mission = Mission.find(params[:mission_id])
+    @mission.candidates['candidates_email'] << current_user.email
+    @mission.save
+
+    redirect_to missions_path
+  end
+
   def update
     @mission.update(mission_params)
     redirect_to animal_mission_path(@mission)
   end
 
   def destroy
+  end
+
+  def candidates_email(mission)
+    mission.candidates['candidates_email']
   end
 
   private
