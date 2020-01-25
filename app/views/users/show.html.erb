@@ -1,11 +1,9 @@
 <div class="container">
-
+          <h1>My profile</h1>
   <div class="row">
     <div class="col-12">
       <div class="card text-center">
-        <div class="card-header">
-          <h2>User Profile</h2>
-        </div>
+
         <div class="card-body">
           <h5 class="card-title">Email: <%= @user.email %></h5>
           <h5 class="card-title">Name: <%= @user.name %></h5>
@@ -20,73 +18,72 @@
   </div>
 
   <% if @user == current_user %>
-    <div class="row">
-      <div class="col-12">
-        <div class="card text-center">
-          <div class="card-header">
-            <h2>Your animal(s)</h2>
-          </div>
-          <div class="card-deck">
+  <p></p>
+  <h1>My animals
+    <% if @user == current_user %>
+    <%= link_to new_animal_path, class: 'btn add-animal', title:'Add new animal' do %>
+      <i class="fas fa-plus-circle"></i>
+    <% end %>
+  <% end %></h1>
+          <div class="cards">
             <% @animals.each do |animal| %>
               <div class="card">
+                <% if animal.photo.attached? %>
+                  <%= cl_image_tag animal.photo.key%>
+                  <% end %>
+                <h2><%= animal.name %></h2>
                 <div class="card-body">
-                  <h4 class="card-title"><%= animal.name %></h4>
-                  <h5>Species: <%= animal.species %></h5>
-                  <h5>Dangerosity: <%= animal.dangerosity %></h5>
-                  <p class="card-text">Needs: <%= animal.needs %></p>
-                  <%= link_to "Edit animal", edit_animal_path(animal), class: 'btn btn-primary rounded' %>
-                  <%= link_to "Delete animal", animal_path(animal),
+                  <ul class="fa-ul">
+                  <li><span class="fa-li"><i class="fas fa-paw fa-fw"></i></span><%= animal.species %></li>
+                  <li><span class="fa-li"><i class="fas fa-exclamation-triangle fa-fw"></i></span> <%= animal.dangerosity %></li>
+                  <li><span class="fa-li"><i class="fas fa-hand-holding-heart fw"></i></span> <%= animal.needs %></li>
+                </ul>
+                </div>
+                <div class="d-flex justify-content-between">
+                  <%= link_to edit_animal_path(animal), :class=> "btn btn-primary rounded", :id=>"edit", title:"Edit animal" do %>
+                  <i class="fas fa-edit"></i>
+                  <% end %>
+                  <%= link_to animal_path(animal),
                   method: :delete,
                   data: { confirm: "Are you sure?" },
-                  class: 'ml-3 btn btn-secondary rounded' %>
-                  <%= link_to "Add mission", new_animal_mission_path(animal), class: 'btn btn-primary rounded' %>
+                  class: 'btn btn-primary rounded', title:"Delete animal", :id=>"delete" do %>
+                  <i class="fas fa-trash-alt"></i>
+                  <% end %>
+                  <%= link_to new_animal_mission_path(animal), class: 'btn btn-primary rounded', title:"Add new mission" do %>
+                  <i class="fas fa-calendar-plus"></i>
+                  <% end %>
                 </div>
               </div>
             <% end %>
           </div>
-        </div>
-      </div>
-    </div>
   <% end %>
-
   <% if @user == current_user %>
-    <div class="row">
-      <div class="col-12 text-center">
-        <%= link_to "Add animal", new_animal_path, class: 'btn btn-primary rounded' %>
-      </div>
-    </div>
-  <% end %>
+  <p></p>
 
-  <% if @user == current_user %>
-    <div class="row">
-        <div class="col-12">
-          <div class="card text-center">
-            <div class="card-header">
-              <h2>Your pending missions</h2>
-            </div>
-            <div class="card-deck">
+  <h1>Your pending missions</h1>
+
+            <div class="cards">
               <% @missions.each do |mission| %>
-                <div class="card" style="width: 18rem;">
+                <div class="card">
+                  <h2><i class="far fa-calendar-alt fa-fw"></i> <%= mission.start_date %> - <%= mission.end_date %></h2>
                   <div class="card-body">
-                    <p class="card-text">
-                    <p> status: <%= mission.status %></p>
-                    <p>Mission from <%= mission.start_date %> to <%= mission.end_date %></p>
-                    <p>Animal : <%= mission.animal.name %> </p>
-                    <p>City : <%= mission.city %></p>
+                    <div class="card-text">
+                      <ul class="fa-ul">
+                        <li><span class="fa-li"><i class="fas fa-tag fa-fw"></i></span> <%= mission.status %></li>
+                        <li><span class="fa-li"><i class="fas fa-paw fa-fw"></i></span> <b><%= mission.animal.name %></b>, <%= mission.animal.species %></li>
+                        <li><span class="fa-li"><i class="fas fa-map-marker-alt fa-fw"></i></span> <%= mission.city %></li>
+                      </ul>
                       <% if mission.pending? %>
                         <%= simple_form_for mission, url: animal_mission_path(mission.animal, mission), method: :patch do |f| %>
                           <%= f.input :candidates, collection: mission.serialized_candidates %>
                           <%= f.submit "Select candidate", class: "btn btn-primary" %>
                         <% end %>
                       <% end %>
-                    </p>
+                    </div>
                   </div>
                 </div>
               <% end %>
             </div>
-          </div>
-        </div>
-      </div>
   <% end %>
 
 

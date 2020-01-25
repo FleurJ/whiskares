@@ -41,12 +41,28 @@ a.btn.btn-primary.rounded {
   display: inline-block;
   font-weight: 600;
   text-transform: uppercase;
-  background-color: #c4c4c4;
+  background-color: #dfdfdf;
   color: #777;
   border-radius: 0px 0px 0.25rem 0.25rem;
+  font-size: 1.2em;
 
   &:hover {
     background-color: #00A5BD;
     color: white;
   }
+}
+
+.justify-content-between {
+  display: flex;
+  padding: 6px;
+}
+
+.justify-content-between a.btn.btn-primary.rounded {
+  margin: 6px;
+  display: inline-block;
+  width: 100%;
+}
+
+a.btn.btn-primary.rounded #delete :hover {
+  background-color: #e5554f;
 }
