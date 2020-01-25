@@ -9,9 +9,7 @@
         <%= f.input :dangerosity, label: "Dangerosity:" %>
         <%= f.input :needs, label: "Needs:" %>
         <%= f.input :photo, as: :file %>
-        <button type="button" class="btn btn-primary">
-          <%= f.button :submit, value: 'Save changes', "data-disable-with" => "Creating.."%>
-        </button>
+          <%= f.button :submit, value: 'Save changes', class:"btn btn-primary", "data-disable-with" => "Creating.."%>
       <% end %>
     </div>
   </div>
