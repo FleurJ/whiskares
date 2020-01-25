@@ -51,7 +51,7 @@
 
   <% if @user == current_user %>
     <div class="row">
-      <div class="col-12">
+      <div class="col-12 text-center">
         <%= link_to "Add animal", new_animal_path, class: 'btn btn-primary rounded' %>
       </div>
     </div>
@@ -69,15 +69,16 @@
                 <div class="card" style="width: 18rem;">
                   <div class="card-body">
                     <p class="card-text">
-                      <p>Mission from <%= mission.start_date %> to <%= mission.end_date %></p>
-                      <p>Animal : <%= mission.animal.name %> </p>
-                      <p>City : <%= mission.city %></p>
-                      <p>candidates: <%= mission.candidates['candidates_email'] %></p>
+                    <p> status: <%= mission.status %></p>
+                    <p>Mission from <%= mission.start_date %> to <%= mission.end_date %></p>
+                    <p>Animal : <%= mission.animal.name %> </p>
+                    <p>City : <%= mission.city %></p>
+                      <% if mission.pending? %>
                         <%= simple_form_for mission, url: animal_mission_path(mission.animal, mission), method: :patch do |f| %>
-                          <%= f.input :candidates %>
-                          <%= f.input :archived %>
-                          <%= f.submit "Save changes", class: "btn btn-primary" %>
+                          <%= f.input :candidates, collection: mission.serialized_candidates %>
+                          <%= f.submit "Select candidate", class: "btn btn-primary" %>
                         <% end %>
+                      <% end %>
                     </p>
                   </div>
                 </div>
