@@ -3,10 +3,10 @@
 <div class="cards">
   <% @missions.each do |mission| %>
       <div class="card">
-        <%= image_tag "1977-elliott-05.jpg"%>
-<!--           <% if mission.animal.photo.attached? %>
+<!--         <%= image_tag "1977-elliott-05.jpg"%> -->
+          <% if mission.animal.photo.attached? %>
           <%= cl_image_tag mission.animal.photo.key%>
-          <% end %> -->
+          <% end %>
         <h2><i class="far fa-calendar-alt fa-fw"></i> <%= mission.start_date %> - <%= mission.end_date %></h2>
         <div class="card-body">
           <div class="card-text">
