@@ -13,6 +13,7 @@ class UsersController < ApplicationController
     missions.each do |m|
       @missions << m if m.user == current_user
     end
+    @review = Review.new
   end
 
   def edit

@@ -88,4 +88,30 @@
       </div>
   <% end %>
 
+
+    <div class="row">
+      <div class="col-12">
+        <h3>Reviews</h3>
+        <% if @user.reviews.empty? %>
+          <p>Be the first to add a review to this user!</p>
+        <% else %>
+            <% @user.reviews.each do |r| %>
+              <h4><%= r.comment %></h4>
+              <h4><%= r.rating %></h4>
+              <% if current_user == r.user %>
+                <%= link_to "Delete review", user_review_path(r),
+                    method: :delete,
+                    data: { confirm: "Are you sure?" },
+                    class: 'ml-3 btn btn-secondary rounded' %>
+              <% end %>
+            <% end %>
+        <% end %>
+        <% if @user == current_user %>
+          <p>Cannot review own page</p>
+        <% else %>
+          <%= render "reviews/new", user: @user, review: @review %>
+        <% end %>
+      </div>
+    </div>
+
 </div>
