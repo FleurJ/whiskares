@@ -5,10 +5,11 @@ $red : #e5554f;
 
 .btn-primary {
   background-color: $clearblue;
+  border: none;
 
   &:hover{
     box-shadow: 1px 1px 3px rgba(255, 255, 255, 0.3);
-    background-color: $clearblue;
+    background-color: $darkblue;
   }
 
 }

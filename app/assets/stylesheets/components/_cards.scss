@@ -1,7 +1,40 @@
 .card {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
   border: none;
   box-shadow: 2px 2px 6px #c4c4c4;
-  margin: 10px;
+
+}
+
+.card img {
+  object-fit: cover;
+  width: 100%;
+  margin: 0px;
+  border-radius: 0.25rem 0.25rem 0 0;
+}
+
+.card h2 {
+  font-weight: 600;
+  font-size: 1.4em;
+  color: #fff;
+  padding: 6px;
+  text-align: center;
+  display: block;
+  background-color: #005670;
+}
+
+.card-body {
+  font-size: 1.2em;
+}
+
+.card ul {
+  padding-left: 1.25rem;
+  margin-left: 0.6em;
+}
+
+.card li {
+  line-height: 1.7em;
+}
+
+a.btn.btn-primary.rounded {
+  display: inline-block;
+  float: right;
 }

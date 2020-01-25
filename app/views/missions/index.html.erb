@@ -1,19 +1,22 @@
 <div class="container">
 <h1>All Missions</h1>
-<div class="row">
+<div class="cards">
   <% @missions.each do |mission| %>
-      <div class="card" style="width: 18rem;">
+      <div class="card">
+        <%= image_tag "1977-elliott-05.jpg"%>
+<!--           <% if mission.animal.photo.attached? %>
+          <%= cl_image_tag mission.animal.photo.key%>
+          <% end %> -->
+        <h2><i class="far fa-calendar-alt fa-fw"></i> <%= mission.start_date %> - <%= mission.end_date %></h2>
         <div class="card-body">
-          <% if mission.animal.photo.attached? %>
-          <%= cl_image_tag mission.animal.photo.key, height: 300, width: 400, crop: :fill%>
-          <% end %>
-          <p class="card-text">
-            <p>Mission from <%= mission.start_date %> to <%= mission.end_date %></p>
-            <p>Animal : <%= mission.animal.name %> </p>
-            <p>City : <%= mission.city %></p>
-            <%= link_to 'Apply', animal_mission_apply_path(mission, mission.animal), method: :post %>
-            <p>candidates: <%= mission.candidates['candidates_email'] %></p>
-          </p>
+          <div class="card-text">
+            <ul class="fa-ul">
+              <li><span class="fa-li"><i class="fas fa-paw fa-fw"></i></span> <b><%= mission.animal.name %></b>, <%= mission.animal.species %></li>
+              <li><span class="fa-li"><i class="fas fa-hand-holding-heart fw"></i></span> <%= mission.animal.needs %></li>
+              <li><span class="fa-li"><i class="fas fa-map-marker-alt fa-fw"></i></span> <%= mission.city %></li>
+            </ul>
+            <%= link_to 'Apply', animal_mission_apply_path(mission, mission.animal), method: :post, class: 'btn btn-primary rounded' %>
+          </div>
         </div>
       </div>
     <% end %>
