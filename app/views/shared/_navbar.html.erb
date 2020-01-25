@@ -1,5 +1,5 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-  <%= link_to "Home", class: "navbar-brand" do %>
+  <%= link_to missions_path, class: "navbar-brand" do %>
     <%= image_tag "logo-whiskares-v2.png", width:"444px" %>
     <% end %>
 
@@ -20,7 +20,7 @@
         <li class="nav-item">
           <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "nav-link" %>
         </li>
-        <li class="nav-item dropdown">
+<li class="nav-item dropdown">
           <%= image_tag "user.png", height:"40px", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
             <%= link_to "Action", "#", class: "dropdown-item" %>
