@@ -110,8 +110,7 @@
           <h3>Be the first to add a review to this user!</h3>
         <% else %>
             <% @user.reviews.each do |r| %>
-              <h4><%= r.comment %></h4>
-              <h4><%= r.rating %></h4>
+              <h4><%= r.comment %> - <%= r.rating %></h4>
             <% end %>
         <% end %>
         <% if @user == current_user %>
