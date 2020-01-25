@@ -60,7 +60,7 @@ class MissionsController < ApplicationController
   def extended_mission_params
     mission_params.merge({
       animal: animal,
-      user: current_user
+      user: current_user,
     })
   end
 

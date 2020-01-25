@@ -1,22 +1,21 @@
 <div class="container">
 <h1>All Missions</h1>
-  <div class="row">
-    <div class="col-12">
-      <div class="card-deck">
-        <% @missions.each do |mission| %>
-          <div class="card" style="width: 18rem;">
-            <div class="card-body">
-              <p class="card-text">
-                <p>Mission from <%= mission.start_date %> to <%= mission.end_date %></p>
-                <p>Animal : <%= mission.animal.name %> </p>
-                <p>City : <%= mission.city %></p>
-                <%= link_to 'Apply', animal_mission_apply_path(mission, mission.animal), method: :post %>
-                <p>candidates: <%= mission.candidates['candidates_email'] %></p>
-              </p>
-            </div>
-          </div>
-        <% end %>
+<div class="row">
+  <% @missions.each do |mission| %>
+      <div class="card" style="width: 18rem;">
+        <div class="card-body">
+          <% if mission.animal.photo.attached? %>
+          <%= cl_image_tag mission.animal.photo.key, height: 300, width: 400, crop: :fill%>
+          <% end %>
+          <p class="card-text">
+            <p>Mission from <%= mission.start_date %> to <%= mission.end_date %></p>
+            <p>Animal : <%= mission.animal.name %> </p>
+            <p>City : <%= mission.city %></p>
+            <%= link_to 'Apply', animal_mission_apply_path(mission, mission.animal), method: :post %>
+            <p>candidates: <%= mission.candidates['candidates_email'] %></p>
+          </p>
+        </div>
       </div>
-    </div>
-  </div>
+    <% end %>
 </div>
+
