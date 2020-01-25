@@ -15,9 +15,9 @@
               <li><span class="fa-li"><i class="fas fa-map-marker-alt fa-fw"></i></span> <%= mission.city %></li>
               <li><span class="fa-li"><i class="fas fa-euro-sign fa-fw"></i></span> <%= mission.fee %> /day</li>
             </ul>
-            <%= link_to 'Apply', animal_mission_apply_path(mission, mission.animal), method: :post, class: 'btn btn-primary rounded' %>
           </div>
         </div>
+        <%= link_to 'Apply', animal_mission_apply_path(mission, mission.animal), method: :post, class: 'btn btn-primary rounded' %>
       </div>
     <% end %>
 </div>
