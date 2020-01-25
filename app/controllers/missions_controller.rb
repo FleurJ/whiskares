@@ -1,5 +1,6 @@
 class MissionsController < ApplicationController
   before_action :check_mission, only: [:update, :edit, :show]
+  before_action :authenticate_user!, only: [:update, :edit, :show]
 
   attr_reader :candidates_email
 
@@ -35,12 +36,11 @@ class MissionsController < ApplicationController
   end
 
   def update
-    if @mission.user == current_user
-      @mission.update(mission_params)
-      redirect_to animal_mission_path(@mission)
-    else
-      redirect_to animal_mission_path(@mission)
+    @mission.candidates['chosen_candidate'] = candidate_params
+    if @mission.save!
+      @mission.booked!
     end
+    redirect_to animal_mission_path(@mission)
   end
 
   def destroy
@@ -64,7 +64,13 @@ class MissionsController < ApplicationController
     mission_params.merge({
       animal: animal,
       user: current_user,
+      my-account-missions-candidates
+      status: 'pending'
     })
+  end
+
+  def candidate_params
+    params.require(:mission).require('candidates')
   end
 
   def animal
