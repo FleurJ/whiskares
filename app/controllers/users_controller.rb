@@ -5,6 +5,7 @@ class UsersController < ApplicationController
   def show
     @animals = current_user.animals
     @missions = current_user.missions
+    @review = Review.new
   end
 
   def edit

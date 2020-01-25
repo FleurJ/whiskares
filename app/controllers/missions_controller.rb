@@ -64,6 +64,7 @@ class MissionsController < ApplicationController
     mission_params.merge({
       animal: animal,
       user: current_user,
+      my-account-missions-candidates
       status: 'pending'
     })
   end
