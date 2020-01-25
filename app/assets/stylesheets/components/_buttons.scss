@@ -54,3 +54,12 @@ $red : #e5554f;
 
 }
 
+a.btn.add-animal {
+  background-color: transparent;
+  font-size: 0.8em;
+  color: #c4c4c4;
+  &:hover {
+    color: #00A5BD;
+  }
+}
+
