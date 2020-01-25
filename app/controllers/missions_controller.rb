@@ -5,7 +5,7 @@ class MissionsController < ApplicationController
   attr_reader :candidates_email
 
   def index
-    @missions = Mission.all.order(:created_at)
+    @missions = Mission.all.order(:created_at).select { |mission| mission.status == 'pending' }
   end
 
   def show
@@ -19,7 +19,7 @@ class MissionsController < ApplicationController
   def create
     mission = Mission.new(extended_mission_params)
     if mission.save!
-      redirect_to animal_mission_path(animal.id, mission.id)
+      redirect_to user_path(current_user)
     else
 
     end

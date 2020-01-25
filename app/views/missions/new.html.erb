@@ -5,8 +5,8 @@
       <h1>Create new mission</h1>
       <%= simple_form_for @mission, url: animal_missions_path(@animal), method: :post do |f| %>
 
-        <%= f.input :start_date %>
-        <%= f.input :end_date %>
+        <%= f.input :start_date, placeholder: "01/11/2020" %>
+        <%= f.input :end_date, placeholder: "01/11/2020" %>
         <%= f.input :fee %>
         <%= f.input :city %>
 
@@ -14,5 +14,4 @@
       <% end %>
     </div>
   </div>
-
 </div>
