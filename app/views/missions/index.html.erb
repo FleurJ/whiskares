@@ -1,10 +1,8 @@
 <div class="container">
 <h1>All Missions</h1>
-<<<<<<< HEAD
 <div class="cards">
   <% @missions.each do |mission| %>
       <div class="card">
-<!--         <%= image_tag "1977-elliott-05.jpg"%> -->
           <% if mission.animal.photo.attached? %>
           <%= cl_image_tag mission.animal.photo.key%>
           <% end %>
@@ -15,6 +13,7 @@
               <li><span class="fa-li"><i class="fas fa-paw fa-fw"></i></span> <b><%= mission.animal.name %></b>, <%= mission.animal.species %></li>
               <li><span class="fa-li"><i class="fas fa-hand-holding-heart fw"></i></span> <%= mission.animal.needs %></li>
               <li><span class="fa-li"><i class="fas fa-map-marker-alt fa-fw"></i></span> <%= mission.city %></li>
+              <li><span class="fa-li"><i class="fas fa-euro-sign fa-fw"></i></span> <%= mission.fee %> /day</li>
             </ul>
             <%= link_to 'Apply', animal_mission_apply_path(mission, mission.animal), method: :post, class: 'btn btn-primary rounded' %>
           </div>
