@@ -99,12 +99,6 @@
             <% @user.reviews.each do |r| %>
               <h4><%= r.comment %></h4>
               <h4><%= r.rating %></h4>
-              <% if current_user == r.user %>
-                <%= link_to "Delete review", user_review_path(r),
-                    method: :delete,
-                    data: { confirm: "Are you sure?" },
-                    class: 'ml-3 btn btn-secondary rounded' %>
-              <% end %>
             <% end %>
         <% end %>
         <% if @user == current_user %>

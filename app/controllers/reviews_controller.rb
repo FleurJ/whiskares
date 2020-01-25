@@ -5,10 +5,10 @@ class ReviewsController < ApplicationController
   end
 
   def create
-    @user = User.find(params[:user_id])
-    @review.user = @user
     if @user != current_user
+      @user = User.find(params[:user_id])
       @review = Review.new(review_params)
+      @review.user = @user
       @review.save
       redirect_to user_path(@user)
     else
@@ -17,12 +17,10 @@ class ReviewsController < ApplicationController
   end
 
   def destroy
+    @user = User.find(params[:user_id])
     if @user == current_user
       @review = Review.find(params[:id])
       @review.destroy
-      redirect_to user_path(@user)
-    else
-      redirect_to user_path(@user)
     end
   end
 
