@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root 'homepage#show'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   resources :users, only: %i[show new edit create destroy update] do
-    resources :reviews, only: %i[new create destroy]
+    resources :reviews, only: %i[new create]
   end
   resources :animals, only: %i[show new create edit update destroy] do
     resources :missions, only: %i[show new create edit update destroy] do
