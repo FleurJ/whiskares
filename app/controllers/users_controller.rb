@@ -1,18 +1,10 @@
 class UsersController < ApplicationController
   before_action :check_user, only: [:edit, :update, :show]
-  before_action :authenticate_user!, only: [:edit, :update]
+  before_action :authenticate_user!, only: [:show, :edit, :update]
 
   def show
-    animals = Animal.all
-    @animals = []
-    animals.each do |a|
-      @animals << a if a.user == current_user
-    end
-    missions = Mission.all
-    @missions = []
-    missions.each do |m|
-      @missions << m if m.user == current_user
-    end
+    @animals = current_user.animals
+    @missions = current_user.missions
   end
 
   def edit
