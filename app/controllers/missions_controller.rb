@@ -40,7 +40,7 @@ class MissionsController < ApplicationController
     if @mission.save!
       @mission.booked!
     end
-    redirect_to animal_mission_path(@mission)
+    redirect_to user_path(current_user.id)
   end
 
   def destroy
