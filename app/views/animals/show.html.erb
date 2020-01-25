@@ -1,8 +1,0 @@
-<h1>Animals#show</h1>
-<% if @animal.photo.attached? %>
-  <%= cl_image_tag @animal.photo.key, height: 300, width: 400, crop: :fill%>
-<% end %>
-<%= "Name: #{@animal.name}" %> <br>
-<%= "Species: #{@animal.species} "  %> <br>
-<%= "Dangerosity #{@animal.dangerosity.to_s}" %> <br>
-<%= "Specific needs: #{@animal.needs}" %> <br>

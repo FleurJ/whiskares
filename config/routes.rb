@@ -5,8 +5,8 @@ Rails.application.routes.draw do
   resources :users, only: %i[show new edit create destroy update] do
     resources :reviews, only: %i[new create destroy]
   end
-  resources :animals, only: %i[show new create edit update destroy] do
-    resources :missions, only: %i[show new create edit update destroy] do
+  resources :animals, only: %i[new create edit update destroy] do
+    resources :missions, only: %i[new create edit update destroy] do
       post '/apply', to: 'missions#apply'
     end
   end
