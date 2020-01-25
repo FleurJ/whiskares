@@ -31,13 +31,16 @@ class MissionsController < ApplicationController
     @mission = Mission.find(params[:mission_id])
     @mission.candidates['candidates_email'] << current_user.email
     @mission.save
-
     redirect_to missions_path
   end
 
   def update
-    @mission.update(mission_params)
-    redirect_to animal_mission_path(@mission)
+    if @mission.user == current_user
+      @mission.update(mission_params)
+      redirect_to animal_mission_path(@mission)
+    else
+      redirect_to animal_mission_path(@mission)
+    end
   end
 
   def destroy
@@ -54,7 +57,7 @@ class MissionsController < ApplicationController
   end
 
   def mission_params
-    params.require(:mission).permit(:candidates, :fee, :city, :animal_id, :start_date, :end_date)
+    params.require(:mission).permit(:candidates, :fee, :city, :animal_id, :start_date, :end_date, :archived)
   end
 
   def extended_mission_params

@@ -8,13 +8,14 @@
   </div>
 
   <div class="row">
-    <div class="col-12"></div>
+    <div class="col-12">
       <%= simple_form_for @user do |f| %>
         <%= f.input :name, required: false %>
         <%= f.input :phone, required: false %>
         <%= f.input :introduction, required: false %>
         <%= f.button :submit %>
       <% end %>
+    </div>
   </div>
 </div>
 
