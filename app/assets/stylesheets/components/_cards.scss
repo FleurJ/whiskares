@@ -1,7 +1,9 @@
 .card {
   border: none;
   box-shadow: 2px 2px 6px #c4c4c4;
-
+  &:hover {
+    box-shadow: 2px 2px 6px #777;
+  }
 }
 
 .card img {
@@ -16,10 +18,10 @@
   font-weight: 600;
   font-size: 1.4em;
   color: #fff;
-  padding: 6px;
+  padding: 16px 6px;
   text-align: center;
   display: block;
-  background-color: #005670;
+  background-color: #00A5BD;
 }
 
 .card-body {
@@ -39,5 +41,12 @@ a.btn.btn-primary.rounded {
   display: inline-block;
   font-weight: 600;
   text-transform: uppercase;
-  // background-color: #c4c4c4;
+  background-color: #c4c4c4;
+  color: #777;
+  border-radius: 0px 0px 0.25rem 0.25rem;
+
+  &:hover {
+    background-color: #00A5BD;
+    color: white;
+  }
 }
