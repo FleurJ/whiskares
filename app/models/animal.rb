@@ -1,6 +1,6 @@
 class Animal < ApplicationRecord
   belongs_to :user
-  has_many :missions
+  has_many :missions, dependent: :destroy
   validates :name, presence: true
   validates :species, presence: true
   validates :needs, presence: true
