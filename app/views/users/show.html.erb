@@ -74,6 +74,10 @@
                         <li><span class="fa-li"><i class="fas fa-map-marker-alt fa-fw"></i></span> <%= mission.city %></li>
                       </ul>
                       <% if mission.pending? %>
+                        <% mission.serialized_candidates.each do |candidate|  %>
+                        <% user = User.find_by_email(candidate) %>
+                        <%= link_to candidate, user_path(user) %>
+                      <% end %>
                         <%= simple_form_for mission, url: animal_mission_path(mission.animal, mission), method: :patch do |f| %>
                           <%= f.input :candidates, collection: mission.serialized_candidates %>
                           <%= f.submit "Select candidate", class: "btn btn-primary" %>
