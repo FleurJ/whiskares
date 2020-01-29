@@ -29,10 +29,14 @@ class MissionsController < ApplicationController
   end
 
   def apply
-    @mission = Mission.find(params[:mission_id])
-    @mission.candidates['candidates_email'] << current_user.email
-    @mission.save
-    redirect_to missions_path
+    if current_user
+      @mission = Mission.find(params[:mission_id])
+      @mission.candidates['candidates_email'] << current_user.email
+      @mission.save
+      redirect_to missions_path
+    else
+      redirect_to new_user_session_path
+    end
   end
 
   def update
